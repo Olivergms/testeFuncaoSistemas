@@ -2,6 +2,7 @@
 $(document).ready(function () {
     if (obj) {
         $('#formCadastro #Nome').val(obj.Nome);
+        $('#formCadastro #Cpf').val(obj.CPF);
         $('#formCadastro #CEP').val(obj.CEP);
         $('#formCadastro #Email').val(obj.Email);
         $('#formCadastro #Sobrenome').val(obj.Sobrenome);
@@ -10,6 +11,8 @@ $(document).ready(function () {
         $('#formCadastro #Cidade').val(obj.Cidade);
         $('#formCadastro #Logradouro').val(obj.Logradouro);
         $('#formCadastro #Telefone').val(obj.Telefone);
+
+        console.log("é um get")
     }
 
     $('#formCadastro').submit(function (e) {
@@ -20,6 +23,7 @@ $(document).ready(function () {
             method: "POST",
             data: {
                 "NOME": $(this).find("#Nome").val(),
+                "CPF": $(this).find("#Cpf").val(),
                 "CEP": $(this).find("#CEP").val(),
                 "Email": $(this).find("#Email").val(),
                 "Sobrenome": $(this).find("#Sobrenome").val(),
