@@ -7,6 +7,7 @@ $(document).ready(function () {
             method: "POST",
             data: {
                 "NOME": $(this).find("#Nome").val(),
+                "CPF": $(this).find("#Cpf").val(),
                 "CEP": $(this).find("#CEP").val(),
                 "Email": $(this).find("#Email").val(),
                 "Sobrenome": $(this).find("#Sobrenome").val(),
@@ -32,6 +33,23 @@ $(document).ready(function () {
     })
     
 })
+
+function mascaraCpf(input) {
+    let value = input.value;
+
+    // Remove tudo que não for número
+    value = value.replace(/\D/g, '');
+
+    // Aplica os pontos e hífen
+    if (value.length > 3 && value.length <= 6)
+        value = value.replace(/(\d{3})(\d+)/, '$1.$2');
+    else if (value.length > 6 && value.length <= 9)
+        value = value.replace(/(\d{3})(\d{3})(\d+)/, '$1.$2.$3');
+    else if (value.length > 9)
+        value = value.replace(/(\d{3})(\d{3})(\d{3})(\d+)/, '$1.$2.$3-$4');
+
+    input.value = value;
+}
 
 function ModalDialog(titulo, texto) {
     var random = Math.random().toString().replace('.', '');
