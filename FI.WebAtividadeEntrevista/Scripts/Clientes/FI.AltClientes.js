@@ -11,8 +11,6 @@ $(document).ready(function () {
         $('#formCadastro #Cidade').val(obj.Cidade);
         $('#formCadastro #Logradouro').val(obj.Logradouro);
         $('#formCadastro #Telefone').val(obj.Telefone);
-
-        console.log("é um get")
     }
 
     $('#formCadastro').submit(function (e) {

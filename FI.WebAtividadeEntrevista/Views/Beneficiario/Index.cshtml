@@ -1,0 +1,60 @@
+<!-- Modal -->
+<div class="modal fade" id="beneficiariosModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Beneficiários</h4>
+            </div>
+
+            <div class="modal-body">
+                @* Formulário de inclusão *@
+                @using (Html.BeginForm("AdicionarBeneficiario", "Cliente", FormMethod.Post))
+                {
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <label for="cpf">CPF:</label>
+                            <input type="text" name="Cpf" class="form-control" placeholder="Ex: 010.011.111-00" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" name="Nome" class="form-control" placeholder="Ex: Maria" required />
+                        </div>
+                        <button type="submit" class="btn btn-success">Incluir</button>
+                    </div>
+                }
+
+                <hr />
+
+                @* Tabela com beneficiários *@
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>CPF</th>
+                            <th>Nome</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Beneficiarios != null)
+                        {
+                            foreach (var item in Model.Beneficiarios)
+                            {
+                                <tr>
+                                    <td>@item.Cpf</td>
+                                    <td>@item.Nome</td>
+                                    <td>
+                                        <a href="@Url.Action("EditarBeneficiario", "Cliente", new { id = item.Id })" class="btn btn-primary btn-sm">Alterar</a>
+                                        <a href="@Url.Action("ExcluirBeneficiario", "Cliente", new { id = item.Id })" class="btn btn-danger btn-sm">Excluir</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
