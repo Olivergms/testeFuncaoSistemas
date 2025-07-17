@@ -25,7 +25,7 @@ namespace WebAtividadeEntrevista.Controllers
             };
 
             //Return result to jTable
-            return Json(new { Result = "OK", Records = list });
+            return Json(new { Result = "OK", lista = list  });
         }
     }
 }

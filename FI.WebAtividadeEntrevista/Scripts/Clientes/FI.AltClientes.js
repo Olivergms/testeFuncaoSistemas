@@ -46,7 +46,10 @@ $(document).ready(function () {
             }
         });
     })
-    
+
+    $('#btn-open-modal').on('click', function () {
+        showModal();
+    })
 })
 
 function ModalDialog(titulo, texto) {
@@ -71,4 +74,8 @@ function ModalDialog(titulo, texto) {
 
     $('body').append(texto);
     $('#' + random).modal('show');
+}
+
+function showModal() {
+    $('#modal-beneficiarios').modal('show');
 }

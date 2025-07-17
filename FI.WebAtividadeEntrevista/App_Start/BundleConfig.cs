@@ -37,6 +37,9 @@ namespace FI.WebAtividadeEntrevista
 
             bundles.Add(new ScriptBundle("~/bundles/altClientes").Include(
                       "~/Scripts/Clientes/FI.AltClientes.js"));
+            
+            bundles.Add(new ScriptBundle("~/bundles/beneficiarioModal").Include(
+                      "~/Scripts/Clientes/FI.BeneficiarioModal.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
